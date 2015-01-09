@@ -1,0 +1,56 @@
+body {
+  padding-top: 50px;
+  background-color: yellow;
+}
+
+img {
+	height: 50%;
+	width: 50%;
+	/*centering image*/
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* testin container 
+.container{ 
+	background-color: black;
+}*/
+
+
+/*prob wont need*/
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+body, html { height: 100%; }
+
+.jumbotron{ background-color: #B23B2F; }
+
+#landing {
+	background-color: #B23B2F;	
+	height: 100%;
+	padding: 40px 15px;
+    text-align: center;
+}
+
+/*having padding 40px 15px in each section fixes gap*/
+
+#about {
+	background-color: #FF2F19;	
+	height: 100%;
+	padding: 40px 15px;
+	text-align: center;
+}
+
+
+.jumbotron a:link{
+    color: #577492;
+}
+
+.jumbotron a:hover{
+    color: #6182A3;
+}
+
+.jumbotron a:visited{
+    color: #618200;
