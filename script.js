@@ -1,3 +1,4 @@
+/*Smooth scroll function*/
 $("a[href^='#']").on('click', function(e) {
 
    // prevent default anchor click behavior
@@ -16,4 +17,13 @@ $("a[href^='#']").on('click', function(e) {
        window.location.hash = hash;
      });
 
+});
+
+
+/*function to mark selection in nav bar as active*/
+$(function() {
+  $('.nav li').click(function() {
+     $('.nav li').removeClass();
+     $(this).addClass('active');
+  });
 });
