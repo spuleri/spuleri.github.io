@@ -25,7 +25,7 @@ img {
 
 body, html { height: 100%; }
 
-.jumbotron{ background-color: #B23B2F; }
+#landing .jumbotron{ background-color: #B23B2F; }
 
 #landing {
 	background-color: #B23B2F;	
@@ -37,12 +37,24 @@ body, html { height: 100%; }
 /*having padding 40px 15px in each section fixes gap*/
 
 #about {
-	background-color: #FF2F19;	
+	background-color: #FF9A90;	
 	height: 100%;
 	padding: 40px 15px;
 	text-align: center;
 }
 
+#contact{
+	background-color: #FF5543;
+	height: 100%;
+	padding: 40px 15px;
+	text-align: center;
+}
+
+#contact .jumbotron{ background-color: #FF5543; }
+
+#header {
+	padding-bottom: 80px;
+}
 
 
 .container .row a:link {
