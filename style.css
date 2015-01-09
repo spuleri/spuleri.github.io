@@ -45,12 +45,26 @@ body, html { height: 100%; }
 
 
 
-a:link {
+.container .row a:link {
     text-decoration: none;
+    color:  #464646;
 }
 
+.container .row a:visited {
+    text-decoration: none;
+    color:  #464646;
+}
 
-.jumbotron a:link{
+.container .row a:hover {
+    text-decoration: underline;
+
+}
+
+.container .row a:active {
+    text-decoration: underline;
+}
+
+/*.jumbotron a:link{
     color: #577492;
 }
 
@@ -60,3 +74,4 @@ a:link {
 
 .jumbotron a:visited{
     color: #618200;
+*/
