@@ -27,3 +27,19 @@ $(function() {
      $(this).addClass('active');
   });
 });
+
+
+//old function where arrow bounces on hover
+// $("#extra-container").hover(function() {
+//   $(this).effect("bounce", { direction: 'up', distance: 60, times: 1 }, 1000);
+// }
+// );
+
+//changed arrow to bounce on page load.
+$(function() {
+  for(i = 0; i < 10; ++i){
+    $("#extra-container").effect("bounce", { direction: 'up', distance: 80, times: 3 }, 2500);
+  }
+}
+);
+

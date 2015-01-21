@@ -34,6 +34,18 @@ body, html { height: 100%; }
     text-align: center;
 }
 
+
+.arrow {
+	position: absolute;
+	bottom: 10px;
+	opacity: .6;
+	text-align: center;
+}
+.arrow i{
+	color: black;
+}
+
+
 /*having padding 40px 15px in each section fixes gap*/
 
 #about {
@@ -76,14 +88,3 @@ body, html { height: 100%; }
     text-decoration: underline;
 }
 
-/*.jumbotron a:link{
-    color: #577492;
-}
-
-.jumbotron a:hover{
-    color: #6182A3;
-}
-
-.jumbotron a:visited{
-    color: #618200;
-*/
