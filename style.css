@@ -17,11 +17,6 @@ img {
 }*/
 
 
-/*prob wont need*/
-.starter-template {
-  padding: 40px 15px;
-  text-align: center;
-}
 
 body, html { height: 100%; }
 
@@ -37,9 +32,8 @@ body, html { height: 100%; }
 
 .arrow {
 	position: absolute;
-	bottom: 10px;
+	bottom: 0px;
 	opacity: .6;
-	text-align: center;
 }
 .arrow i{
 	color: black;
