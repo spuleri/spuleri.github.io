@@ -1,2 +1,2 @@
 # spuleri.github.io
-My personal website, located [here](http://spuleri.com)
+My personal website, located [here](http://spuleri.com).
