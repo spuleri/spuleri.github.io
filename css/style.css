@@ -59,8 +59,6 @@ body, html { height: 100%; }
 .arrow i {
 	color: black;
 }
-
-
 /*having padding 40px 15px in each section fixes gap*/
 
 #about {
@@ -68,6 +66,10 @@ body, html { height: 100%; }
 	/*height: 100%;*/
 	padding: 40px 15px;
 	text-align: center;
+}
+#work {
+	text-align: center;
+	padding: 40px 15px;
 }
 
 /*#contact{
@@ -108,12 +110,12 @@ footer a:hover {
 	text-align: center;
 }
 
-#projects a:link {
+.link-underline:link {
 	color: #000;
 	padding-bottom: 3px;
 	border-bottom: 1px solid #000;
 }
-#projects a:hover {
+.link-underline:hover {
 	border-bottom: 1px dashed #000;
 }
 .img-center {
@@ -121,8 +123,12 @@ footer a:hover {
     margin: 0 auto;
 }
 
-.fa-comments{
+.bigger-icon {
 	font-size: 128px;
+}
+
+.fa-cloud-download {
+	color: #f50;
 }
 footer {
 	text-align: center;
@@ -131,14 +137,16 @@ footer {
 	background-color: #000;
 color: #848484;
 }
-.foot{
-	
+.foot{	
 	font-size: 12px;
 	text-transform: uppercase;
 	font-family: FuturaStd-Heavy;
 	letter-spacing: .18em;
 }
-
 #created{
 	margin-top:10%;
+}
+.cog {
+	width: 128px;
+	height: 128px;
 }

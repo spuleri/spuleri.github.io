@@ -30,24 +30,24 @@ $(function() {
 
 
 
-var bouncing = false;
-//changed arrow to bounce on page load.
-$(function() {
-  for(i = 0; i < 10; ++i){
-    $("#extra-container").effect("bounce", { direction: 'up', distance: 80, times: 3 }, 2500);
-    bouncing = true;
-  }
-  bouncing = false;
-}
-);
+// var bouncing = false;
+// //changed arrow to bounce on page load.
+// $(function() {
+//   for(i = 0; i < 10; ++i){
+//     $("#extra-container").effect("bounce", { direction: 'up', distance: 80, times: 3 }, 2500);
+//     bouncing = true;
+//   }
+//   bouncing = false;
+// }
+// );
 
-// function to bounce arrow if it isnt bouncing on hover.
-$(function() {
-  if(!bouncing) {
-    $("#extra-container").hover(function() {
-      $(this).effect("bounce", { direction: 'up', distance: 60, times: 1 }, 1000);
-    }
-    );
-  }
-}
-);
+// // function to bounce arrow if it isnt bouncing on hover.
+// $(function() {
+//   if(!bouncing) {
+//     $("#extra-container").hover(function() {
+//       $(this).effect("bounce", { direction: 'up', distance: 60, times: 1 }, 1000);
+//     }
+//     );
+//   }
+// }
+// );
