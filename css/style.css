@@ -150,3 +150,7 @@ color: #848484;
 	width: 128px;
 	height: 128px;
 }
+
+#projects small {
+	font-weight: 100;
+}
