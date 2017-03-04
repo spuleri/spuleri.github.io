@@ -1,158 +1,103 @@
-/*makes nav transparent, may use later??
-.navbar-inner {
-    background:transparent;
-}*/
-
 body {
-  padding-top: 50px;
-  background-color:white;
+    /*font-family: 'Helvetica';*/
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    color: #AAAAAA;
+    margin: 0;
 }
 
-h2  {
-	font-family: 'Open Sans',sans-serif;
-	margin-bottom: 35px;
-	font-size: 3em;
-	/*font-weight: lighter;*/
-/*	text-transform: uppercase;
-*/	letter-spacing: .2em;
+.content {
+  /* take out for now*/
+  /*padding: 30px;*/
+  height: 100vh;
+  background-color: #F6F6F6;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+
+  /* Centering */
+  /*max-width: -webkit-calc(800pt - (30pt * 2));*/
+  /*max-width: calc(800pt - (30pt * 2));*/
+  max-width: 50vw;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 30px;
+  padding-left: 30px;
 }
 
-.about-pics {
-/*	height: 60%;
-	width: 60%;*/
-	/*centering image*/
-	margin-left: auto;
-	margin-right: auto;
-  width: 320px;
-  margin-bottom: 15px;
+h1 {
+  font-size: 3em;
+  -webkit-margin-before: 1.7em;
+  -webkit-margin-after: 1em;
+  font-weight: normal;
 }
 
-/* testin container
-.container{
-	background-color: black;
-}*/
-
-
-
-body, html { height: 100%; }
-
-#landing .jumbotron{
- /*background-color: #B23B2F;*/
-   background: rgb(200, 54, 54); /* This is for ie8 and below */
-   background: rgba(200, 54, 54, 0);
-   /*last number is opacity */
-}
-
-#landing {
-	/*background-color: #B23B2F;	*/
-	background-image: url(../img/bg.jpg);
-	background-size: cover;
-	height: 100vh;
-	padding: 40px 15px;
-    text-align: center;
-}
-
-
-.arrow {
-	position: absolute;
-	bottom: 0px;
-	opacity: .6;
-}
-.arrow i {
-	color: black;
-}
-/*having padding 40px 15px in each section fixes gap*/
-
-#about {
-	background-color:#AAB2BD;
-	/*height: 100%;*/
-	padding: 40px 15px;
-	text-align: center;
-}
-#work {
-	text-align: center;
-	padding: 40px 15px;
-}
-
-/*#contact{
-	background-color: #FF5543;
-	height: 100%;
-	padding: 40px 15px;
-	text-align: center;
-}*/
-
-/*#contact .jumbotron{ background-color: #FF5543; }*/
-
-#header {
-	padding-bottom: 80px;
-}
-
- a:link {
-    text-decoration: none;
-    color:  #464646;
-}
-
- a:visited {
-    text-decoration: none;
-    color:  #464646;
-}
-
-footer a:hover {
-    text-decoration: underline;
+.header {
+  text-align: center;
+  font-family: 'EB Garamond', serif;
 
 }
 
- footer a:active {
-    text-decoration: underline;
+.nav-links {
+  color: #EB595A;
+  font-weight: 600;
 }
 
-#projects{
-	background-color: #eee;
-	padding: 40px 15px;
-	text-align: center;
+.left-header-img {
+  float: left;
+  max-width: 40vw;
+  max-height: 100%;
+
+  /* Crops image.
+  Overflow: auto; is necessary,
+  otherwise the image goes outides the bounds of its parent div.
+  Lame.
+  */
+  object-fit: cover;
+  overflow: hidden;
+}
+.about {
+  text-align: center;
 }
 
-.link-underline:link {
-	color: #000;
-	padding-bottom: 3px;
-	border-bottom: 1px solid #000;
-}
-.link-underline:hover {
-	border-bottom: 1px dashed #000;
-}
-.img-center {
-    display: block;
-    margin: 0 auto;
+.header-img {
+    height: 100%;
+
+    /* want the width to be a little more than the parent div so it gets cropped.*/
+    width: 70vw;
 }
 
-.bigger-icon {
-	font-size: 128px;
+
+p {
+  margin-bottom: 20px;
+  text-align: justify;
+  font-size: 1.1em;
 }
 
-.fa-cloud-download {
-	color: #f50;
+
+/* Link Styling*/
+
+.link:link {
+  line-height: 1.75em;
+	color: #EB595A;
+
+  /* Space b/w text and underline */
+	padding-bottom: 7px;
+
+  text-decoration: none;
 }
-footer {
-	text-align: center;
-	padding-top: 10%;
-	padding-bottom: 10%;
-	background-color: #000;
-color: #848484;
-}
-.foot{
-	font-size: 12px;
-	text-transform: uppercase;
-	font-family: FuturaStd-Heavy;
-	letter-spacing: .18em;
-}
-#created{
-	margin-top:10%;
-}
-.cog {
-	width: 128px;
-	height: 128px;
+.link:hover {
+	border-bottom: 2px solid #FFFFFF;
+  cursor: pointer;
+
 }
 
-#projects small {
-	font-weight: 100;
+a:visited {
+   text-decoration: none;
+   /*color:  #464646;*/
+   color: #EB595A;
 }
