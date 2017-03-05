@@ -5,8 +5,10 @@ $title-font: 'EB Garamond', serif;
 
 // Colors
 $background: #F6F6F6;
-$red-accent: #EB595A;
+$highlight: #EB595A;
 $white: #FFFFFF;
+$dark: #424652;
+$border: #E9E9E9;
 
 // Basic Body Styling and Font
 body {
@@ -15,12 +17,18 @@ body {
     font-weight: 300;
     color: #121212;
     margin: 0;
+
+    background-color: $background;
 }
 
-// Main content wrapper
-.content {
+// Main landing content wrapper
+#landing-page{
   height: 100vh;
-  background-color: $background;
+  overflow: hidden;
+}
+
+#landing-content {
+  height: 96%;
 }
 
 // Container for main content
@@ -47,7 +55,7 @@ body {
   // Link Styling
   .link:link {
     line-height: 1.75em;
-    color: $red-accent;
+    color: $highlight;
 
     /* Space b/w text and underline */
     padding-bottom: 7px;
@@ -62,7 +70,7 @@ body {
 
   a:visited {
      text-decoration: none;
-     color: $red-accent;
+     color: $highlight;
   }
 }
 
@@ -101,7 +109,7 @@ body {
        // Want the width to be more than the parent div so it gets cropped.
        // Make it extra wide so it gets cropped and zoomed and has room to grow
        // on large displays.
-      width: 200%;
+      width: 240%;
   }
 }
 
@@ -155,3 +163,32 @@ resources:
   color: #EB595A;
   font-weight: 600;
 }
+
+#main-footer {
+  border-top: 1px solid $border;
+  height: 4%;
+  .footer-container {
+    height: 100%;
+    margin: .7% 2.5em;
+  }
+  .copyright {
+    float: left;
+    font-size: .9em;
+    margin: 0;
+  }
+
+  nav {
+    float: right;
+    i {
+      color: $dark;
+      margin-left: 1em;
+      padding-top: .2em;
+      &:hover {
+        color: $highlight;
+      }
+    }
+  }
+
+}
+
+// Imports go here.

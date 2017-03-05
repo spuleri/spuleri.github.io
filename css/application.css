@@ -407,11 +407,15 @@ body {
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 300;
   color: #121212;
-  margin: 0; }
-
-.content {
-  height: 100vh;
+  margin: 0;
   background-color: #F6F6F6; }
+
+#landing-page {
+  height: 100vh;
+  overflow: hidden; }
+
+#landing-content {
+  height: 96%; }
 
 .container {
   display: flex;
@@ -463,7 +467,7 @@ body {
   overflow: hidden; }
   .left-header-img-wrapper .header-img {
     height: 100%;
-    width: 200%; }
+    width: 240%; }
 
 /*
 A skewed div to make the appearence of the image
@@ -509,5 +513,24 @@ resources:
 .nav-links {
   color: #EB595A;
   font-weight: 600; }
+
+#main-footer {
+  border-top: 1px solid #E9E9E9;
+  height: 4%; }
+  #main-footer .footer-container {
+    height: 100%;
+    margin: .7% 2.5em; }
+  #main-footer .copyright {
+    float: left;
+    font-size: .9em;
+    margin: 0; }
+  #main-footer nav {
+    float: right; }
+    #main-footer nav i {
+      color: #424652;
+      margin-left: 1em;
+      padding-top: .2em; }
+      #main-footer nav i:hover {
+        color: #EB595A; }
 
 /*# sourceMappingURL=application.css.map */
