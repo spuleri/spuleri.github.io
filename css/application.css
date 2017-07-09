@@ -592,7 +592,7 @@ resources:
     text-decoration: none;
     background: #F6F6F6;
     font-weight: 700;
-    font-size: .9em;
+    font-size: 1.1em;
     font-style: normal;
     color: #424652; }
     .pagination a:hover, .pagination .previous-page:hover, .pagination .current:hover, .pagination .next-page:hover {
@@ -606,5 +606,29 @@ resources:
     .pagination .disabled:hover {
       color: #C0C0C0;
       background: #F6F6F6; }
+
+#article-container {
+  margin: 0px auto;
+  padding-top: 7%;
+  max-width: 55vw; }
+  #article-container .subtitle {
+    -webkit-margin-before: 0em; }
+  #article-container #article-title {
+    text-align: center; }
+
+#sharing {
+  margin: 0px auto; }
+  #sharing p {
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #424652;
+    font-size: .8em; }
+  #sharing i {
+    color: #424652;
+    padding: 1em 1.5em; }
+    #sharing ihover {
+      color: #EB595A;
+      cursor: pointer; }
 
 /*# sourceMappingURL=application.css.map */
