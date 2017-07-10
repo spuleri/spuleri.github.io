@@ -1,0 +1,30 @@
+<div class="container" id="articles-container">
+  <div class="nav-links">
+    <%= link_to "< about", root_path, class: "link" %>
+  </div>
+  <!-- Articles page content goes here here -->
+  <div class="header">
+    <h1>Articles</h1>
+  </div>
+  <p class="subtitle"> Some blog posts I've written.</p>
+
+  <div class="posts-section">
+    <!-- Loop through all the posts -->
+    <% @posts.each do |post| %>
+      <div class="post">
+        <p class="date"><%= post.created_at.strftime("%A, %b, %d") %></p>
+        <h2><%= link_to post.title, post %></h2>
+        <hr>
+      </div>
+    <% end %>
+
+  </div>
+
+  <div class="pagination">
+    <span class="previous-page disabled"> Previous</span>
+    <em class="current">1</em>
+    <a rel="next" href="#">2</a>
+    <a class="next-page" href="#">Next</a>
+  </div>
+
+</div>
