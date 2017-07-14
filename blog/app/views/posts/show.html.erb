@@ -1,8 +1,42 @@
-<%= @post.title %>
-<%= @post.content %>
+<div class="container" id="article-container">
+  <!-- Show Article page content goes here here -->
+  <div class="">
+    <header id ="article-title">
+      <p class="date"><%= @post.created_at.strftime('%A, %B %d') %></p>
+      <h1><%= @post.title %></h1>
+    </header>
+  </div>
 
-<br>
-<br>
+  <div id="content">
+    <%= @post.content %>
+  </div>
 
-<%= link_to "Edit", edit_post_path(@post) %>
-<%= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure you want to delete this post?" } %>
+  <div id="sharing">
+    <p>Share Dynamic title here </p>
+    <!-- Twitter -->
+    <a onclick="javascript:window.open('http://twitter.com/intent/tweet?text=<%= @post.title %> by @twitterhandle - &amp;url=<%=url_for([@post, {only_path: false}]) %>', '_blank', 'width=800, height=500, top=200, left=300');void(0);"><i class="fa fa-twitter"></i></a>
+    <!-- Facebook -->
+    <a onclick="javascript:window.open('http://www.facebook.com/sharer.php?u=<%= url_for([@post, {only_path: false}]) %>', '_blank', 'width=800, height=500, top=200, left=300');void(0);"><i class="fa fa-facebook"></i></a>
+  </div>
+<!--
+  <%= link_to "Edit", edit_post_path(@post) %>
+  <%= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure you want to delete this post?" } %> -->
+
+
+  </div>
+
+  <!-- Footer -->
+  <footer id="main-footer">
+    <div class="footer-container">
+      <p class="copyright">&copy; 2017 Sergio Puleri - made with <i class="fa fa-heart"></i> in Gainesville, FL</p>
+
+      <nav>
+        <a href="https://www.linkedin.com/in/spuleri" target="_blank"><i class="fa fa-linkedin"></i></a>
+        <a href="https://github.com/spuleri" target="_blank"><i class="fa fa-github"></i></a>
+        <a href="https://www.dropbox.com/s/xphrhae3a3pd7uz/puleri_sergio_resume.pdf?dl=0" target="_blank"><i class="fa fa-briefcase"></i></a>
+        <a href="mailto:me@sergiopuleri.com" target="_blank"><i class="fa fa-envelope"></i></a>
+
+      </nav>
+    </div>
+  </footer>
+</div>
