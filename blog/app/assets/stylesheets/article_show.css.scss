@@ -34,3 +34,9 @@
     }
   }
 }
+
+#disqus-comments {
+  // Override flex display of parent
+  // display: flex causes weird issue with the disqus comments box
+  // display: block;
+}

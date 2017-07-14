@@ -40,31 +40,7 @@ body {
   align-items: flex-start;
   max-width: 25vw;
 
-  // Body Text Styling
-  p {
-    margin-bottom: 20px;
-    text-align: justify;
-    font-size: 1.2em;
-  }
 
-  // Link Styling
-  .link:link {
-    line-height: 1.75em;
-    color: $highlight;
-
-    /* Space b/w text and underline */
-    padding-bottom: 7px;
-
-    text-decoration: none;
-  }
-  a:visited {
-     text-decoration: none;
-     color: $highlight;
-  }
-  .link:hover {
-    border-bottom: 2px solid $white;
-    cursor: pointer;
-  }
 }
 
 // Header styling
@@ -85,6 +61,32 @@ h2 {
   -webkit-margin-before: .1em;
   -webkit-margin-after: .1em;
   font-weight: normal;
+}
+
+// General Application Text Styles
+p {
+  margin-bottom: 20px;
+  text-align: justify;
+  font-size: 1.2em;
+}
+
+// Link Styling
+.link:link {
+  line-height: 1.75em;
+  color: $highlight;
+
+  /* Space b/w text and underline */
+  padding-bottom: 7px;
+
+  text-decoration: none;
+}
+a:visited {
+   text-decoration: none;
+   color: $highlight;
+}
+.link:hover {
+  border-bottom: 2px solid $white;
+  cursor: pointer;
 }
 
 // Styling for nav links
