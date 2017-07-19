@@ -1,0 +1,29 @@
+<div class="container" id="articles-container">
+  <div class="header">
+    <h1><%= @time %></h1>
+  </div>
+
+  <div class="posts-section">
+    <!-- Loop through the posts by month in this year-->
+    <div class="post-group-by-month">
+        <% @posts_by_month.each do |month, posts| %>
+          <h2><%= link_to month.strftime('%B'), url_for("/#{@time}/#{month.strftime('%m')}"), class:"link" %></h2>
+
+          <ul>
+          <% for post in posts %>
+            <li>
+              <p class="post-title"> <%= link_to post.title, show_post_path(post.to_param_custom) %></p>
+            </li>
+          <% end %>
+        </ul>
+
+        <% end %>
+    </div>
+
+    <!-- If no posts found for this year -->
+    <% if @posts_by_month.blank? %>
+      <p>No posts found</p>
+    <% end %>
+
+  </div>
+</div>

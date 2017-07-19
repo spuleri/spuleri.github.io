@@ -1,0 +1,30 @@
+<div class="container" id="articles-container">
+  <div class="header">
+    <h1><%= @time%></h1>
+  </div>
+
+  <div class="posts-section">
+    <!-- Loop through the posts by day in this year-->
+    <div>
+        <% @posts_by_day.each do |day, posts| %>
+          <h2><%= day.strftime('%A, %B %d') %></h2>
+
+          <ul>
+          <% for post in posts %>
+            <li>
+              <p class="post-title"> <%= link_to post.title, show_post_path(post.to_param_custom) %></p>
+            </li>
+          <% end %>
+        </ul>
+
+        <% end %>
+    </div>
+
+    <!-- If no posts found -->
+    <% if @posts_by_day.blank? %>
+      <p>No posts found</p>
+    <% end %>
+
+  </div>
+
+</div>

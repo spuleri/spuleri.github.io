@@ -1,0 +1,138 @@
+@import 'normalize';
+// Fonts
+$body-font: 'Source Sans Pro', sans-serif;
+$title-font: 'EB Garamond', serif;
+
+// Colors
+$background: #F6F6F6;
+$highlight: #EB595A;
+$white: #FFFFFF;
+$onyx: #121212;
+$dark: #424652;
+$border: #E9E9E9;
+
+// Other styling
+$page-width: 35vw;
+
+// Basic Body Styling and Font
+body {
+    /*font-family: 'Helvetica';*/
+    font-family: $body-font;
+    font-weight: 300;
+    color: $onyx;
+    margin: 0;
+
+    background-color: $background;
+}
+
+// Main landing content wrapper
+.viewport-page {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.viewport-page-content {
+  height: 96%;
+}
+
+// Container for main content
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: $page-width;
+}
+
+// Header styling
+.header {
+  text-align: center;
+  font-family: $title-font;
+
+  h1 {
+    font-size: 2em;
+    -webkit-margin-before: .5em;
+    -webkit-margin-after: .5em;
+    font-weight: normal;
+  }
+}
+
+h2 {
+  font-size: 1.5em;
+  -webkit-margin-before: .1em;
+  -webkit-margin-after: .1em;
+  font-weight: normal;
+}
+
+// General Application Text Styles
+p {
+  margin-bottom: 20px;
+  text-align: justify;
+  font-size: 1.2em;
+}
+
+// Link Styling
+.link:link {
+  line-height: 1.75em;
+  color: $highlight;
+
+  /* Space b/w text and underline */
+  padding-bottom: 7px;
+
+  text-decoration: none;
+}
+a:visited {
+   text-decoration: none;
+   color: $highlight;
+}
+.link:hover {
+  border-bottom: 2px solid $white;
+  cursor: pointer;
+}
+
+// Styling for nav links
+.nav-links {
+  color: #EB595A;
+  font-weight: 600;
+}
+
+.main-nav {
+  p {
+    text-align: center;
+  }
+  max-width: $page-width;
+  margin: 0px auto;
+}
+
+#main-footer {
+  border-top: 1px solid $border;
+  height: 4%;
+  .footer-container {
+    height: 100%;
+    margin: .7% 2.5em;
+  }
+  .copyright {
+    float: left;
+    font-size: .9em;
+    margin: 0;
+  }
+
+  nav {
+    float: right;
+    i {
+      color: $dark;
+      margin-left: 1em;
+      padding-top: .2em;
+      &:hover {
+        color: $highlight;
+      }
+    }
+  }
+
+}
+
+// Imports go here.
+@import 'about';
+@import 'articles';
+@import 'article_show';
+@import 'pygments';

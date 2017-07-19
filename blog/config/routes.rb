@@ -1,8 +1,39 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :posts
-  get 'home/index'
 
-  # Making this the root of our application
+  # :show and :edit will use my own custom routing sceheme
+  resources :posts, except: [:show, :edit]
+
+  # Custom year/month/day/title path scheme
+  path_scheme = '/:year/:month/:day/:title'
+
+  options = { :year => nil, :month => nil, :day => nil }
+
+  constraints = {
+    year:       /\d{4}/,
+    month:      /\d{1,2}/,
+    day:        /\d{1,2}/,
+    title:      /[^\s\/]+/ # https://stackoverflow.com/a/6125137
+  }
+
+  # show and edit routes
+  get path_scheme => 'posts#show', :constraints => constraints, :as => :show_post, :action => :show
+  get "#{path_scheme}/edit" => 'posts#edit', :constraints => constraints, :as => :edit_post, :action => :edit
+
+  # View posts by time period routes
+  get '/:year/:month/:day' => 'posts#day', :constraints => {
+    year:       /\d{4}/,
+    month:      /\d{1,2}/,
+    day:        /\d{1,2}/
+  }
+  get '/:year/:month' => 'posts#month', :constraints => {
+    year:       /\d{4}/,
+    month:      /\d{1,2}/
+  }
+  get '/:year' => 'posts#year', :constraints => {
+    year:       /\d{4}/
+  }
+
+  # Home route
+  get 'home/index'
   root 'home#index'
 end

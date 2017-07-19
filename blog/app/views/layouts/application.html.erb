@@ -23,8 +23,7 @@
   </head>
 
   <body>
-    <!-- <h5> menu bar would go here </h5> -->
-
+    <%= render 'layouts/nav' unless @disable_nav %>
     <%= yield %>
   </body>
 </html>

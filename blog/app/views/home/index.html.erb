@@ -20,17 +20,8 @@
         <p>Sometimes I make some <a class='link' target="_blank" href='#'>things</a> in my free time. My resume can be found <a class='link' target="_blank" href='https://www.dropbox.com/s/xphrhae3a3pd7uz/puleri_sergio_resume.pdf?dl=0'>here</a> It <i>should</i> be up to date. A cute timeline of my work experience can be found <a class='link' href='#'>here</a> </p>
       </div>
 
-      <div class="nav-links">
-        <p>
-          <a class='link', href='index.html'>about</a>
-          &nbsp;&nbsp;/&nbsp;&nbsp;
-          <%= link_to "blog", posts_path, class: "link" %>
-          &nbsp;&nbsp;/&nbsp;&nbsp;
-          <a class='link', href='https://www.cise.ufl.edu/'>work</a>
-          &nbsp;&nbsp;/&nbsp;&nbsp;
-          <a class='link', href='https://www.cise.ufl.edu/'>contact</a>
-        </p>
-      </div>
+      <%= render 'layouts/simple_nav' %>
+
     </div>
   </div>
 

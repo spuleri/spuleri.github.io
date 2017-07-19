@@ -7,7 +7,7 @@
 
 var disqus_config = function () {
   // TODO: fiddle with some more, some issues loading on localhost
-  this.page.url =  '<%= url_for(post_url(@post)) %>';
+  this.page.url =  '<%= url_for(show_post_path(@post.to_param_custom)) %>';
   this.page.identifier = '<%= @post.id %>';
   this.page.title = '<%= @post.title %>';
 };

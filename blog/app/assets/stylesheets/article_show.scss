@@ -1,0 +1,61 @@
+#article-container {
+  margin: 0px auto;
+  // padding-top:7%;
+  max-width: 35vw;
+
+  .subtitle {
+    -webkit-margin-before: 0em;
+  }
+
+  #article-title {
+    // max-width: 45vw;
+    text-align: center;
+    margin: 3em;
+
+    h1 {
+      font-family: serif;
+      font-weight: normal;
+      margin-bottom: -3px;
+    }
+    p {
+      text-align: center;
+    }
+
+    .date {
+      font-family: monospace;
+    }
+
+    // margin-bottom: 5em;
+  }
+}
+
+#content {
+  margin-top: 1em;
+}
+
+#sharing {
+  margin: 0px auto;
+  p {
+    // padding: 0 0 1em 0;
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $dark;
+    font-size: .8em;
+  }
+
+  i {
+    color: $dark;
+    padding: 1em 1.5em;
+    &hover {
+      color: $highlight;
+      cursor: pointer;
+    }
+  }
+}
+
+#disqus-comments {
+  // Override flex display of parent
+  // display: flex causes weird issue with the disqus comments box
+  // display: block;
+}

@@ -1,0 +1,21 @@
+<div class="container" id="articles-container">
+  <div class="header">
+    <h1>Posts from <%= @time %></h1>
+  </div>
+
+  <div>
+    <ul>
+    <% for post in @day_posts %>
+      <li>
+        <p class="post-title"> <%= link_to post.title, show_post_path(post.to_param_custom) %></p>
+      </li>
+    <% end %>
+  </ul>
+
+  <!-- If no posts found -->
+  <% if @day_posts.blank? %>
+    <p>No posts found</p>
+  <% end %>
+</div>
+
+</div>
