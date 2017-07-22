@@ -36,4 +36,13 @@ Rails.application.routes.draw do
   # Home route
   get 'home/index'
   root 'home#index'
+
+
+  # All other bad paths render 404
+  get '*path', :to => 'application#page_not_found'
+
+  # if Rails.env.production?
+  get '404', :to => 'application#page_not_found'
+  # end
+
 end
