@@ -1,21 +1,33 @@
-<%= form_for @post do |f| %>
-    <%if @post.errors.any? %>
-    <h2><%= pluralize(@post.errors.count, "error") %> prevented this post from saving:</h2>
-    <ul>
-      <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg%></li>
+<div class="post-editing-wrapper">
+  <%= form_for @post do |f| %>
+    <div class="form-format">
+      <%if @post.errors.any? %>
+      <h2><%= pluralize(@post.errors.count, "error") %> prevented this post from saving:</h2>
+      <ul>
+        <% @post.errors.full_messages.each do |msg| %>
+          <li><%= msg%></li>
+        <% end %>
+      </ul>
       <% end %>
-    </ul>
-    <% end %>
 
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+      <%= f.label :title %><br>
+      <%= f.text_field :title, :class => 'form-input' %>
 
-    <br>
-    <br>
+      <br>
+      <br>
 
-    <%= f.label :content, "Write your article here." %><br>
-    <%= f.text_area :content %>
+      <%= f.label :content, "Write your article here." %><br>
+      <div id="editor-wrapper">
+        <div id="gutter"></div>
+        <div id="textarea-wrapper">
+          <%= f.text_area :content, :id => 'editor-textarea', :rows => '20' %>
+        </div>
+      </div>
 
-    <%= f.submit %>
-<% end %>
+      <div class="form-button-wrapper">
+        <%= f.submit %>
+      </div>
+
+    </div>
+  <% end %>
+</div>

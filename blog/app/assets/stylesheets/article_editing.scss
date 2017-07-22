@@ -1,0 +1,75 @@
+// Styles for editing articles
+.editing-container-no-flex {
+  width: 80%;
+  max-width: $editing-page-width;
+  margin: 0 auto;
+}
+
+.post-editing-wrapper {
+  textarea, input:not([type="submit"]), .line-row {
+    width: 100%;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+
+    border: none;
+    overflow: auto;
+    outline: none;
+    resize: none;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+}
+
+.form-input {
+  font-size: 20px;
+}
+
+#textarea-wrapper {
+  // Makes the textarea take up remaining horizontal width next to gutter
+  width:auto;
+  overflow: hidden;
+}
+#editor-textarea {
+  height: auto;
+  display: inline-block;
+}
+
+#gutter {
+  background-color: #FFFFFF;
+  border-left: 1px solid #eff0f1;
+  display: inline-block;
+  float: left;
+  width: 35px;
+  padding: 3px 15px 2px 0;
+  overflow-y: auto;
+
+  .line-row {
+    text-align: right;
+    color: #959da5;
+    // padding: 0.5px 0;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.form-button-wrapper {
+  text-align: center;
+  margin: 1em 0;
+
+  input[type="submit"] {
+    background-color: $highlight;
+    width: 100%;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+}
