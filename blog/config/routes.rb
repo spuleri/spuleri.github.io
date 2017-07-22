@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'users/new'
+
   # :show and :edit will use my own custom routing sceheme
   resources :posts, except: [:show, :edit]
 

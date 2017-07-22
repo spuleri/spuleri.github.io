@@ -3,6 +3,10 @@ class Post < ApplicationRecord
   validates :title, presence: true,
                    length: { minimum: 5 }
 
+  validates :parameterized_title, presence: true,
+                                  uniqueness: { case_sensitive: false }
+
+
   before_save :update_parameterized_title
 
   # Don't override `to_param`, that is necessary for resource defined routes

@@ -37,7 +37,7 @@ gem 'pygments.rb'
 gem 'redcarpet'
 gem 'will_paginate'
 gem 'mail_form'
-gem 'devise'
+gem 'bcrypt'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
