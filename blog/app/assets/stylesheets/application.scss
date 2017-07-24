@@ -2,6 +2,8 @@
 // Fonts
 $body-font: 'Source Sans Pro', sans-serif;
 $title-font: 'EB Garamond', serif;
+$monospace-font: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+
 
 // Colors
 $background: #F6F6F6;
@@ -149,6 +151,43 @@ a:visited {
   text-align: center;
   padding: 1em 0;
   border-bottom: 1px solid #E9E9E9;
+  max-width: 25vw;
+  margin: 0px auto;
+  border-radius: 1.5em;
+}
+
+.alert {
+  font-weight: 600;
+  color: white;
+}
+
+.alert-danger {
+	border: 1 px solid #ea0505;
+	background: #f37f7f;
+}
+
+.alert-success {
+	border: 1 px solid #43a937;
+	background: #1ecc6f;
+}
+
+.signed-in-notice {
+    float: right;
+    // border: 1.3px solid darkgray;
+    margin: 0 1.5em 0 0;
+    padding: 0.5em;
+	font-size: 0.65em;
+    font-family: $monospace-font;
+    /* background-color: #e6d7d7; */
+    // box-shadow: 2px 1px 6px 1px #e2d0d0;
+
+	.emoji {
+		font-size: 1.8em;
+		margin-top: 2px;
+    	display: inline-block;
+		vertical-align: middle;
+	}
+
 }
 
 .email {

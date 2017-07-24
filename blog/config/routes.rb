@@ -36,8 +36,13 @@ Rails.application.routes.draw do
   }
 
   # Home route
-  get 'home/index'
+  get  'home/index'
   root 'home#index'
+
+  # Sessions
+  get    '/login',   to: 'sessions#new'
+  post   '/login',   to: 'sessions#create'
+  delete '/logout',  to: 'sessions#destroy'
 
 
   # All other bad paths render 404

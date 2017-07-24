@@ -5,10 +5,10 @@
   margin: 0 auto;
 }
 
-.post-editing-wrapper {
+.form-editing-wrapper {
   textarea, input:not([type="submit"]), .line-row {
     width: 100%;
-    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-family: $monospace-font;
 
     border: none;
     overflow: auto;

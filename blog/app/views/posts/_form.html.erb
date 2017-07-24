@@ -1,6 +1,6 @@
-<div class="post-editing-wrapper">
+<div class="form-editing-wrapper">
   <%= form_for @post do |f| %>
-    <div class="form-format">
+    <div class="">
       <%if @post.errors.any? %>
       <h2><%= pluralize(@post.errors.count, "error") %> prevented this post from saving:</h2>
       <ul>
