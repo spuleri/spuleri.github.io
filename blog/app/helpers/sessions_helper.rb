@@ -6,20 +6,43 @@ module SessionsHelper
 		session[:user_id] = user.id
 	end
 
+	# Remembers a user in a persistent session
+	def remember(user)
+		# Stores a new remember_digest in the db upon login
+		user.remember
+
+		# Stores two permananet (20.years.from_now.utc), cookies
+		cookies.permanent.signed[:user_id] = user.id
+		cookies.permanent.signed[:remember_token] = user.remember_token
+	end
+
+	# Forgets a persistent session.
+	def forget(user)
+		user.forget
+		cookies.delete(:user_id)
+		cookies.delete(:remember_token)
+	end
+
+
 	# Logs out the current user.
 	# Remove user_id from session hash and set to nil
+	# also forget from persistent session
 	def log_out
+		forget(current_user)
 		session.delete(:user_id)
 		@current_user = nil
 	end
 
 	def current_user
-		# make an instance variable for current user
-		# assign it using ||= i.e. assign to itself OR
-		# result of query if itself is nil
-		@current_user ||= User.find_by(id: session[:user_id])
-		# If current_user is nil, means the session has no one signed in
-		# since the query couldn't find anyone
+		if (user_id = session[:user_id])
+		  @current_user ||= User.find_by(id: user_id)
+		elsif (user_id = cookies.signed[:user_id])
+		  user = User.find_by(id: user_id)
+		  if user && user.authenticated?(cookies[:remember_token])
+			log_in user
+			@current_user = user
+		  end
+		end
 	end
 
 	# Returns true if someone is logged in, false if not

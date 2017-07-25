@@ -17,6 +17,14 @@
       <br>
       <br>
 
+      <%= f.label :remember_me do %>
+        <%= f.check_box :remember_me %>
+        <span>Remember me on this computer</span>
+      <% end %>
+
+	  <br>
+	  <br>
+
       <div class="form-button-wrapper">
         <%= f.submit "Log in", class: "form-button-wrapper" %>
       </div>
