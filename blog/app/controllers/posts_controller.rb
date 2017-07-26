@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
 
   # Called on only these methods before
+
+  before_action :authorization, only: [:new, :create, :destroy, :edit, :update]
   before_action :find_post_by_custom_params, only: [:show, :edit]
   before_action :find_post_by_id, only: [:update, :destroy]
 
@@ -120,5 +122,13 @@ class PostsController < ApplicationController
 
     render file: "#{Rails.root}/public/404", layout: true, status: :not_found if @post.blank?
   end
+
+	def authorization
+		unless logged_in?
+			store_location # Store the location they're trying to access
+			flash[:danger] = "Please login to access that page"
+			redirect_to login_url
+		end
+	end
 
 end

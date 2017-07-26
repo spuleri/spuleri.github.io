@@ -1,0 +1,5 @@
+<div class="post">
+	<p class="date"><%= post.created_at.strftime("%A, %B %d %Y") %></p>
+	<h2 class="post-title"><%= link_to post.title, show_post_path(post.to_param_custom) %></h2>
+	<hr>
+</div>

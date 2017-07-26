@@ -7,14 +7,12 @@
   <p class="subtitle"> Some blog posts I've written.</p>
 
   <div class="posts-section">
-    <!-- Loop through all the posts -->
-    <% @posts.each do |post| %>
-      <div class="post">
-        <p class="date"><%= post.created_at.strftime("%A, %B %d %Y") %></p>
-        <h2 class="post-title"><%= link_to post.title, show_post_path(post.to_param_custom) %></h2>
-        <hr>
-      </div>
-    <% end %>
+	<!--
+	 Loop through and render all the posts using a _post partial
+	 and smart rails to loop through the list:
+	 https://www.railstutorial.org/book/updating_and_deleting_users#sec-partial_refactoring
+	-->
+		<%= render @posts %>
   </div>
 
   <div class="pagination-container">

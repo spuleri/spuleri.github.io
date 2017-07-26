@@ -23,7 +23,6 @@ module SessionsHelper
 		cookies.delete(:remember_token)
 	end
 
-
 	# Logs out the current user.
 	# Remove user_id from session hash and set to nil
 	# also forget from persistent session
@@ -50,4 +49,17 @@ module SessionsHelper
 	def logged_in?
 		!current_user.nil?
 	end
+
+  # Redirects to stored location (or to the default).
+  def redirect_back_or(default)
+    redirect_to(session[:forwarding_url] || default)
+    session.delete(:forwarding_url)
+  end
+
+  # Stores the URL trying to be accessed.
+	# Called if authorization is required for a path
+  def store_location
+    session[:forwarding_url] = request.original_url if request.get?
+  end
+
 end
