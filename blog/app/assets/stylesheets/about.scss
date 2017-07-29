@@ -1,5 +1,5 @@
 #about {
-	font-family: $sansSerif;
+  font-family: $sansSerif;
 }
 
 #about-container {
@@ -16,21 +16,20 @@
   max-width: 40vw;
   max-height: 100%;
 
-  /* Crops image.
-  Overflow: auto; is necessary,
-  otherwise the image goes outides the bounds of its parent div.
-  Lame.
-  */
+  // Crops image.
+  // Overflow: auto; is necessary,
+  // otherwise the image goes outides the bounds of its parent div.
+  // Lame.
   object-fit: cover;
   overflow: hidden;
 
   .header-img {
-      height: 100%;
+    height: 100%;
 
-       // Want the width to be more than the parent div so it gets cropped.
-       // Make it extra wide so it gets cropped and zoomed and has room to grow
-       // on large displays.
-      width: 240%;
+    // Want the width to be more than the parent div so it gets cropped.
+    // Make it extra wide so it gets cropped and zoomed and has room to grow
+    // on large displays.
+    width: 240%;
   }
 }
 
@@ -39,7 +38,7 @@ A skewed div to make the appearence of the image
 having a slanted line through it and appear to be cropped.
 
 How this is done for future Sergio:
- - I skew the div on the x axis.
+- I skew the div on the x axis.
 - Use absoulte positioning to position the div relative to the parent-most dom node
 which has relative position. Which is the parent div.
 - Set value for left to change distance from the left. And make the dom
@@ -56,25 +55,25 @@ resources:
 - http://lawrencenaman.com/css/responsive-slanted-divs-with-css/
 - https://developer.mozilla.org/en-US/docs/Web/CSS/position
 - https://www.w3schools.com/cssref/pr_pos_left.asp
-*/
-.skew {
-  content: '';
-  position: absolute;
-  left: 85%;
-  bottom: 0;
-  border-left: 8px solid $white;
-  width: 100%;
-  height: 100%;
+ */
+  .skew {
+    content: '';
+    position: absolute;
+    left: 85%;
+    bottom: 0;
+    border-left: 8px solid $white;
+    width: 100%;
+    height: 100%;
 
-  /* BG Color same is right side so it appears to be on top */
-  background: $background;
+    /* BG Color same is right side so it appears to be on top */
+    background: $background;
 
-  -webkit-transform: skewX(-10deg);
-  -moz-transform: skewX(-10deg);
-  -ms-transform: skewX(-10deg);
-  -o-transform: skewX(-10deg);
-  transform: skewX(-10deg);
+    -webkit-transform: skewX(-10deg);
+    -moz-transform: skewX(-10deg);
+    -ms-transform: skewX(-10deg);
+    -o-transform: skewX(-10deg);
+    transform: skewX(-10deg);
 
-  -webkit-backface-visibility: hidden;
-  backface-visibility: initial;
-}
+    -webkit-backface-visibility: hidden;
+    backface-visibility: initial;
+  }

@@ -51,15 +51,15 @@ class PostsController < ApplicationController
     day = params[:day]
     @time = "#{year}/#{month}/#{day}".to_time.strftime('%A, %B %d %Y')
 
-    # Find the posts created on this day
-    dt = DateTime.parse("#{year}-#{month}-#{day}")
-    start = dt.beginning_of_day
+      # Find the posts created on this day
+      dt = DateTime.parse("#{year}-#{month}-#{day}")
+      start = dt.beginning_of_day
     finish = dt.end_of_day
 
     # Query and order
     @day_posts = Post
-    .where("created_at >= ? and created_at <= ?", start, finish)
-    .order("created_at desc")
+      .where("created_at >= ? and created_at <= ?", start, finish)
+      .order("created_at desc")
   end
 
   def month
@@ -68,15 +68,15 @@ class PostsController < ApplicationController
     month = params[:month]
     @time = "#{year}/#{month}".to_time.strftime('%B %Y')
 
-    # Find the posts in this time range
-    dt = DateTime.parse("#{year}-#{month}-1")
-    start = dt.beginning_of_month
+      # Find the posts in this time range
+      dt = DateTime.parse("#{year}-#{month}-1")
+      start = dt.beginning_of_month
     finish = dt.end_of_month
 
     # Query and order
     month_posts = Post
-    .where("created_at >= ? and created_at <= ?", start, finish)
-    .order("created_at desc")
+      .where("created_at >= ? and created_at <= ?", start, finish)
+      .order("created_at desc")
 
     # Group by day in this month
     # — creates a hash of day time objects to arrays of posts
@@ -123,12 +123,12 @@ class PostsController < ApplicationController
     render file: "#{Rails.root}/public/404", layout: true, status: :not_found if @post.blank?
   end
 
-	def authorization
-		unless logged_in?
-			store_location # Store the location they're trying to access
-			flash[:danger] = "Please login to access that page"
-			redirect_to login_url
-		end
-	end
+  def authorization
+    unless logged_in?
+      store_location # Store the location they're trying to access
+      flash[:danger] = "Please login to access that page"
+      redirect_to login_url
+    end
+  end
 
-end
+  end

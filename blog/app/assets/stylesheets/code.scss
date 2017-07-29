@@ -3,11 +3,11 @@
 @import 'variables';
 
 .codehilite {
-	display: inline-block;
+  display: inline-block;
 
-	// Gives code blocks a little inset on left and right sides
-	width: 90%;
-	margin-left: 1em;
+  // Gives code blocks a little inset on left and right sides
+  width: 90%;
+  margin-left: 1em;
 
   tbody {
     display: block;
@@ -25,7 +25,7 @@
   .code {
     flex: 1 0 0px;
     margin-left: -1px;
-		background-color: #fff;
+    background-color: #fff;
 
     // firefox again
     display: block;
@@ -41,8 +41,8 @@ pre {
   overflow-x: auto;
   word-break: inherit;
   word-wrap: inherit;
-	font-family: $monospaceFont;
-	font-size: 0.8em;
+  font-family: $monospaceFont;
+  font-size: 0.8em;
 }
 
 .codehilite .gl {
@@ -56,8 +56,8 @@ pre {
 p code, li code, td code {
   color: #000;
   padding: 0 2px;
-	font-family: $monospaceFont;
-	font-size: 1em;
+  font-family: $monospaceFont;
+  font-size: 1em;
 }
 
 a code {

@@ -20,15 +20,15 @@
   </head>
 
   <body>
- 	<% if logged_in? %>
-		<div class="signed-in-notice">
-			<span class="emoji">🌟</span>
-			<span>Admin online: <%= @current_user.email %></span> <br>
-			<%= link_to "Log Out", logout_path, method: :delete, class: "link" %>
-		</div>
-	<% end %>
+    <% if logged_in? %>
+      <div class="signed-in-notice">
+        <span class="emoji">🌟</span>
+        <span>Admin online: <%= @current_user.email %></span> <br>
+        <%= link_to "Log Out", logout_path, method: :delete, class: "link" %>
+      </div>
+    <% end %>
 
-	<%= render 'layouts/nav' unless @disable_nav %>
+    <%= render 'layouts/nav' unless @disable_nav %>
 
     <% if notice %>
       <p class="notice"><%= notice %></p>
@@ -36,9 +36,9 @@
       <p class="alert"><%= alert %></p>
     <% end %>
 
-	<% flash.each do |message_type, message| %>
-		<div class="alert alert-<%= message_type %>"><%= message %></div>
-	<% end %>
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
+    <% end %>
 
     <%= yield %>
   </body>

@@ -1,10 +1,10 @@
 @import 'variables';
 
 html, body {
-	font-family: $sansSerif;
+  font-family: $sansSerif;
   font-smoothing: subpixel-antialiased;
   font-weight: 300;
-	color: $onyx;
+  color: $onyx;
 }
 
 // General h2 used on subheadings on article lists
@@ -33,8 +33,8 @@ p {
   text-decoration: none;
 }
 a:visited {
-   text-decoration: none;
-   color: $highlight;
+  text-decoration: none;
+  color: $highlight;
 }
 .link:hover {
   border-bottom: 2px solid $white;
@@ -43,8 +43,8 @@ a:visited {
 
 // Article styling
 #markdown-content {
-	// Use serif font family in markdown post for all text
-	font-family: $serif;
+  // Use serif font family in markdown post for all text
+  font-family: $serif;
 
   h1 {
     font-size: 3em;
@@ -79,89 +79,89 @@ a:visited {
     padding: 2px 4px;
   }
 
-	blockquote {
-		p {
-			color: #999;
-			font-weight: 100;
-		}
+  blockquote {
+    p {
+      color: #999;
+      font-weight: 100;
+    }
     padding: .7rem 0 .5rem 1rem;
     margin-left: 0;
     border-left: 2px solid #ccc;
 
-		>:first-child {
-			margin-top: 0;
-		}
-		>:last-child {
-			margin-bottom: 0;
-		}
+    >:first-child {
+      margin-top: 0;
+    }
+    >:last-child {
+      margin-bottom: 0;
+    }
 
-	}
+  }
 
-	a {
+  a {
     color: $brightRed;
     text-decoration: none;
     border-bottom: 3px solid $lightRedOrange;
-		cursor: pointer;
+    cursor: pointer;
 
-		&:hover {
-				border-bottom: 3px solid $brightRed
-		}
+    &:hover {
+      border-bottom: 3px solid $brightRed
+    }
 
-	}
+  }
 
-	sup > a {
-		// No bottom borders on superscripts
-		border-bottom: none;
-	}
-
-
-	.header-link {
-		// Custom header link formatting and hover action
-		color: $onyx;
-		border-bottom: none;
-		text-decoration: none;
-		position: relative;
-
-		&:hover {
-			border-bottom: none;
-		}
-
-		&:hover > .header-link-icon:before {
-			// css for .header-link-icon when .header-link is hovered
-			content: '#';
-			position: absolute;
-			left: -21px;
-			top: 4px;
-			color: $lightRedOrange;
-			font-size: .8em
-		}
+  sup > a {
+    // No bottom borders on superscripts
+    border-bottom: none;
+  }
 
 
-	}
+  .header-link {
+    // Custom header link formatting and hover action
+    color: $onyx;
+    border-bottom: none;
+    text-decoration: none;
+    position: relative;
+
+    &:hover {
+      border-bottom: none;
+    }
+
+    &:hover > .header-link-icon:before {
+      // css for .header-link-icon when .header-link is hovered
+      content: '#';
+      position: absolute;
+      left: -21px;
+      top: 4px;
+      color: $lightRedOrange;
+      font-size: .8em
+    }
+
+
+  }
 
   h1, h2, h3, h4, h5 {
     code { font-size: 90%; }
 
-		// On header links dont have link formatting
-		a {
-		}
+    // On header links dont have link formatting
+    a {
+    }
   }
 
   p {
     margin: 1.1em 0;
   }
 
-	p, ul, ol {
-		font-weight: normal;
-		font-size: 1.1em;
-		line-height: 185%;
-		text-align: left;
-		color: #444;
+  p, ul, ol {
+    font-weight: normal;
+    font-size: 1.1em;
+    line-height: 185%;
+    text-align: left;
+    color: #444;
 
-		ul {
-			font-size: .95em;
-		}
-	}
+    ul {
+      font-size: .95em;
+    }
+  }
 
 }
 

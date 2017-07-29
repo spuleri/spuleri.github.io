@@ -3,8 +3,8 @@
 
 // Basic Body Styling and Font
 body {
-	margin: 0;
-	background-color: $background;
+  margin: 0;
+  background-color: $background;
 }
 
 // Main landing content wrapper
@@ -34,7 +34,7 @@ body {
 
 
 .no-flex-padding {
-	padding: 3rem 0;
+  padding: 3rem 0;
 }
 
 
@@ -45,7 +45,7 @@ body {
 .nav-links {
   color: $highlight;
   font-weight: 600;
-	font-family: $sansSerif;
+  font-family: $sansSerif;
 }
 
 .main-nav {
@@ -96,36 +96,36 @@ body {
 
 .alert {
   font-weight: 600;
-	background: #bc92e6;
+  background: #bc92e6;
   color: white;
 }
 
 .alert-danger {
-	border: 1 px solid #ea0505;
-	background: #f37f7f;
+  border: 1 px solid #ea0505;
+  background: #f37f7f;
 }
 
 .alert-success {
-	border: 1 px solid #43a937;
-	background: #1ecc6f;
+  border: 1 px solid #43a937;
+  background: #1ecc6f;
 }
 
 .signed-in-notice {
-    float: right;
-    // border: 1.3px solid darkgray;
-    margin: 0 1.5em 0 0;
-    padding: 0.5em;
-		font-size: 0.65em;
-    font-family: $monospaceFont;
-    /* background-color: #e6d7d7; */
-    // box-shadow: 2px 1px 6px 1px #e2d0d0;
+  float: right;
+  // border: 1.3px solid darkgray;
+  margin: 0 1.5em 0 0;
+  padding: 0.5em;
+  font-size: 0.65em;
+  font-family: $monospaceFont;
+  /* background-color: #e6d7d7; */
+  // box-shadow: 2px 1px 6px 1px #e2d0d0;
 
-	.emoji {
-		font-size: 1.8em;
-		margin-top: 2px;
-    	display: inline-block;
-		vertical-align: middle;
-	}
+  .emoji {
+    font-size: 1.8em;
+    margin-top: 2px;
+    display: inline-block;
+    vertical-align: middle;
+  }
 
 }
 

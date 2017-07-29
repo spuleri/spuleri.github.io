@@ -8,8 +8,8 @@ class User < ApplicationRecord
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
-                    format: { with: VALID_EMAIL_REGEX },
-                    uniqueness: { case_sensitive: false }
+    format: { with: VALID_EMAIL_REGEX },
+    uniqueness: { case_sensitive: false }
 
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
@@ -18,8 +18,8 @@ class User < ApplicationRecord
   # Remembers a user in the database for persistent sessions
   # updates the remember_digest column, with the hashed random token
   def remember
-	  self.remember_token = User.new_token
-	  update_attribute(:remember_digest, User.digest(remember_token))
+    self.remember_token = User.new_token
+    update_attribute(:remember_digest, User.digest(remember_token))
   end
 
   # Forgets a user.
@@ -30,7 +30,7 @@ class User < ApplicationRecord
 
   # Returns true if the given token matches the digest stored in the db
   def authenticated?(remember_token)
-	return false if remember_digest.nil?
+    return false if remember_digest.nil?
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
 
@@ -39,7 +39,7 @@ class User < ApplicationRecord
   # Returns the hash digest of the given string.
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
-                                                  BCrypt::Engine.cost
+      BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
 

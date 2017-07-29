@@ -7,23 +7,23 @@
   <p class="subtitle"> Some blog posts I've written.</p>
 
   <div class="posts-section">
-	<!--
-	 Loop through and render all the posts using a _post partial
-	 and smart rails to loop through the list:
-	 https://www.railstutorial.org/book/updating_and_deleting_users#sec-partial_refactoring
-	-->
-		<%= render @posts %>
+    <!--
+      Loop through and render all the posts using a _post partial
+      and smart rails to loop through the list:
+      https://www.railstutorial.org/book/updating_and_deleting_users#sec-partial_refactoring
+    -->
+    <%= render @posts %>
   </div>
 
   <div class="pagination-container">
     <%= will_paginate @posts %>
 
-  <!-- <div class="pagination">
-    <span class="previous-page disabled"> Previous</span>
-    <em class="current">1</em>
-    <a rel="next" href="#">2</a>
-    <a class="next-page" href="#">Next</a>
-  </div> -->
+    <!-- <div class="pagination">
+      <span class="previous-page disabled"> Previous</span>
+      <em class="current">1</em>
+      <a rel="next" href="#">2</a>
+      <a class="next-page" href="#">Next</a>
+      </div> -->
   </div>
 
 </div>

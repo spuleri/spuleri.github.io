@@ -6,12 +6,12 @@
     <header id ="article-title">
       <h1><%= @post.title %></h1>
       <p class="date"><%= @post.created_at.strftime('%A, %B %d %Y') %></p>
-			<% if logged_in? %>
-				<%= link_to "Edit", edit_post_path(@post.to_param_custom), class: "link" %>
-				,
-				<%= link_to "Delete", post_path(@post), method: :delete, class: "link",
-					data: { confirm: "Are you sure you want to delete this post?" } %>
-			<% end %>
+      <% if logged_in? %>
+        <%= link_to "Edit", edit_post_path(@post.to_param_custom), class: "link" %>
+        ,
+        <%= link_to "Delete", post_path(@post), method: :delete, class: "link",
+        data: { confirm: "Are you sure you want to delete this post?" } %>
+    <% end %>
     </header>
   </div>
 
@@ -27,12 +27,12 @@
     <a onclick="javascript:window.open('http://www.facebook.com/sharer.php?u=<%= url_for(show_post_path(@post.to_param_custom)) %>', '_blank', 'width=800, height=500, top=200, left=300');void(0);"><i class="fa fa-facebook"></i></a>
   </div>
 
-	<div class="comments">
-		<h2 id="comments">Comments</h2>
-		<div>
-			<%= render 'disqus' %>
-		</div>
-	</div>
+  <div class="comments">
+    <h2 id="comments">Comments</h2>
+    <div>
+      <%= render 'disqus' %>
+    </div>
+  </div>
 
 
 </div>
