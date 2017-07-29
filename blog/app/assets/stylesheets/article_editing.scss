@@ -1,14 +1,14 @@
 // Styles for editing articles
 .editing-container-no-flex {
   width: 80%;
-  max-width: $editing-page-width;
+  max-width: $editingPageWidth;
   margin: 0 auto;
 }
 
 .form-editing-wrapper {
   textarea, input:not([type="submit"]):not([type="checkbox"]), .line-row {
     width: 100%;
-    font-family: $monospace-font;
+    font-family: $monospaceFont;
 
     border: none;
     overflow: auto;
@@ -36,8 +36,7 @@
 }
 
 #gutter {
-  background-color: #FFFFFF;
-  border-left: 1px solid #eff0f1;
+  background-color: $white;
   display: inline-block;
   float: left;
   width: 35px;

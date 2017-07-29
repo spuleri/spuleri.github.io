@@ -1,0 +1,48 @@
+// Fonts
+
+// Used for most body text on about page and listing posts
+$sansSerif: 'Source Sans Pro', sans-serif;
+
+// Used for body text in markdown post content
+$serif: HoeflerText-Regular,serif;
+
+// Used for title of posts and site title (my name)
+$titleFont: 'EB Garamond', serif;
+
+// Used for code stuffs (you can tell where its used)
+$monospaceFont: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+
+
+// Colors
+
+// Page bg
+$background: #F6F6F6;
+
+// Red highlight color used for links in places other than markdown content
+$highlight: #EB595A;
+
+// White lol
+$white: #FFFFFF;
+
+// Dark color used for body text in most places in app
+$onyx: #121212;
+
+// A dark color used for footer and share links on articles
+$dark: #424652;
+
+// A dark color used for border in code gutter and footer
+$border: #E9E9E9;
+
+// A light gray color used for line number color in gutter
+$lightGray: #ccc;
+
+// Used for underline color on links in markdown content
+$lightRedOrange: #eaac8e;
+
+// Used for link text color in markdown and underline color on hover
+$brightRed: #e30000;
+
+
+// Size styling
+$pageWidth: 40vw;
+$editingPageWidth: 45vw;

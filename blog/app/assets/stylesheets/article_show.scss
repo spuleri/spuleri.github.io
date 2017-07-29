@@ -1,14 +1,28 @@
+@import 'variables';
+
+// Header styling
+.header {
+  text-align: center;
+  font-family: $titleFont;
+
+  h1 {
+    font-size: 2em;
+    -webkit-margin-before: .5em;
+    -webkit-margin-after: .5em;
+    font-weight: normal;
+  }
+}
+
+// Article container styling
 #article-container {
   margin: 0px auto;
-  // padding-top:7%;
-  max-width: 35vw;
+  max-width: $pageWidth;
 
   .subtitle {
     -webkit-margin-before: 0em;
   }
 
   #article-title {
-    // max-width: 45vw;
     text-align: center;
     margin: 3em;
 
@@ -24,8 +38,6 @@
     .date {
       font-family: monospace;
     }
-
-    // margin-bottom: 5em;
   }
 }
 
@@ -52,6 +64,11 @@
       cursor: pointer;
     }
   }
+}
+
+#comments {
+    font-size: 2em;
+    margin: 1.5em 0 1em 0;
 }
 
 #disqus-comments {

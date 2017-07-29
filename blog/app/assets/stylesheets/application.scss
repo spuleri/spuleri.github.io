@@ -1,31 +1,10 @@
 @import 'normalize';
-// Fonts
-$body-font: 'Source Sans Pro', sans-serif;
-$title-font: 'EB Garamond', serif;
-$monospace-font: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-
-
-// Colors
-$background: #F6F6F6;
-$highlight: #EB595A;
-$white: #FFFFFF;
-$onyx: #121212;
-$dark: #424652;
-$border: #E9E9E9;
-
-// Other styling
-$page-width: 35vw;
-$editing-page-width: 45vw;
+@import 'variables';
 
 // Basic Body Styling and Font
 body {
-    /*font-family: 'Helvetica';*/
-    font-family: $body-font;
-    font-weight: 300;
-    color: $onyx;
-    margin: 0;
-
-    background-color: $background;
+	margin: 0;
+	background-color: $background;
 }
 
 // Main landing content wrapper
@@ -44,12 +23,12 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  max-width: $page-width;
+  max-width: $pageWidth;
 }
 
 .container-no-flex {
   width: 80%;
-  max-width: $page-width;
+  max-width: $pageWidth;
   margin: 0 auto;
 }
 
@@ -58,63 +37,22 @@ body {
 	padding: 3rem 0;
 }
 
-// Header styling
-.header {
-  text-align: center;
-  font-family: $title-font;
 
-  h1 {
-    font-size: 2em;
-    -webkit-margin-before: .5em;
-    -webkit-margin-after: .5em;
-    font-weight: normal;
-  }
-}
 
-h2 {
-  font-size: 1.5em;
-  -webkit-margin-before: .1em;
-  -webkit-margin-after: .1em;
-  font-weight: normal;
-}
 
-// General Application Text Styles
-p {
-  margin-bottom: 20px;
-  text-align: justify;
-  font-size: 1.2em;
-}
-
-// Link Styling
-.link:link {
-  line-height: 1.75em;
-  color: $highlight;
-
-  /* Space b/w text and underline */
-  padding-bottom: 7px;
-
-  text-decoration: none;
-}
-a:visited {
-   text-decoration: none;
-   color: $highlight;
-}
-.link:hover {
-  border-bottom: 2px solid $white;
-  cursor: pointer;
-}
 
 // Styling for nav links
 .nav-links {
   color: $highlight;
   font-weight: 600;
+	font-family: $sansSerif;
 }
 
 .main-nav {
   p {
     text-align: center;
   }
-  max-width: $page-width;
+  max-width: $pageWidth;
   margin: 0px auto;
 }
 
@@ -177,8 +115,8 @@ a:visited {
     // border: 1.3px solid darkgray;
     margin: 0 1.5em 0 0;
     padding: 0.5em;
-	font-size: 0.65em;
-    font-family: $monospace-font;
+		font-size: 0.65em;
+    font-family: $monospaceFont;
     /* background-color: #e6d7d7; */
     // box-shadow: 2px 1px 6px 1px #e2d0d0;
 
@@ -198,7 +136,9 @@ a:visited {
 
 // Imports go here.
 @import 'about';
+@import 'typography';
 @import 'articles';
 @import 'article_show';
 @import 'article_editing';
-@import 'pygments';
+@import 'code';
+@import 'syntax';

@@ -33,11 +33,11 @@ gem 'jbuilder', '~> 2.5'
 
 
 # Below are my gems
-gem 'pygments.rb'
 gem 'redcarpet'
 gem 'will_paginate'
 gem 'mail_form'
 gem 'bcrypt'
+gem 'rouge'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

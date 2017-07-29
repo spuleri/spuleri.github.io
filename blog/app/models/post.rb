@@ -7,7 +7,7 @@ class Post < ApplicationRecord
                                   uniqueness: { case_sensitive: false }
 
 
-  before_save :update_parameterized_title
+  before_validation :update_parameterized_title
 
   # Don't override `to_param`, that is necessary for resource defined routes
   # to work properly

@@ -1,12 +1,31 @@
 module ApplicationHelper
-  class HTMLWithPygments < Redcarpet::Render::HTML
-    def block_code(code, language)
-      Pygments.highlight(code, lexer: language)
-    end
+	# rouge requires
+	require 'rouge/plugins/redcarpet'
+
+  class HTMLWithRouge < Redcarpet::Render::HTML
+		include Rouge::Plugins::Redcarpet
+
+		# Override this method for custom formatting behavior
+		def rouge_formatter(lexer)
+			formatter = Rouge::Formatters::HTML.new
+			formatter2 = Rouge::Formatters::HTMLTable.new(formatter,
+																									 	opts={code_class: 'code',
+																													table_class: 'codehilite',
+																													gutter_class: 'codegutter'})
+		end
+
+		# Custom header renderer to render linked headers
+		def header(text, level)
+			s = "<span class=\"header-link-icon\"></span>"
+			h_class = "class=\"header-link\""
+			p = text.parameterize
+			a = "<a #{h_class} id=\"#{p}\" href=\"\##{p}\">#{s}#{text}</a>"
+			"<h#{level}>#{a}</h#{level}>"
+		end
   end
 
   def markdown(content)
-    renderer = HTMLWithPygments.new(hard_wrap: true, filter_html: true)
+    renderer = HTMLWithRouge.new(filter_html: true)
 		options = {
 			autolink: true,
       no_intra_emphasis: true,
@@ -17,8 +36,8 @@ module ApplicationHelper
       superscript: true,
       prettify: true,
       highlight: true,
-      footnotes:true,
-      quote:true
+      footnotes: true,
+      quote: true
 		}
 		Redcarpet::Markdown.new(renderer, options).render(content).html_safe
   end
