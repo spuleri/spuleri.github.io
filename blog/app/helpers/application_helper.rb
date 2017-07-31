@@ -25,7 +25,7 @@ module ApplicationHelper
   end
 
   def markdown(content)
-    renderer = HTMLWithRouge.new(filter_html: true)
+    renderer = HTMLWithRouge.new()
     options = {
       autolink: true,
       no_intra_emphasis: true,
