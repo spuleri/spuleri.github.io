@@ -42,6 +42,8 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
 
+  # Markdown preview
+  post "/markdown_preview" => 'posts#markdown_preview'
 
   # All other bad paths render 404
   get '*path', :to => 'application#page_not_found'

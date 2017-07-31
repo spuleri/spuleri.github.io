@@ -2,7 +2,8 @@ class PostsController < ApplicationController
 
   # Called on only these methods before
 
-  before_action :authorization, only: [:new, :create, :destroy, :edit, :update]
+  protect_from_forgery except: :markdown_preview
+  before_action :authorization, only: [:new, :create, :destroy, :edit, :update, :markdown_preview]
   before_action :find_post_by_custom_params, only: [:show, :edit]
   before_action :find_post_by_id, only: [:update, :destroy]
 
@@ -27,6 +28,19 @@ class PostsController < ApplicationController
   end
 
   def edit
+  end
+
+  def markdown_preview
+    # Return the markdown partial using render_to_string
+    render json: {
+      compiledHTML:
+        render_to_string(
+          partial: 'posts/markdown',
+          formats: :html,
+          layout: false,
+          locals: { content: params[:content] }
+        )
+    }
   end
 
   def update

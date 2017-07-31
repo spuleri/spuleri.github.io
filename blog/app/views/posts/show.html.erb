@@ -15,9 +15,7 @@
     </header>
   </div>
 
-  <div id="markdown-content">
-    <%= markdown @post.content %>
-  </div>
+  <%= render "markdown", content: @post.content %>
 
   <div id="sharing">
     <p>Share <%= @post.title %></p>

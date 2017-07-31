@@ -82,30 +82,8 @@
       border-left: 1px solid #e1e4e8;
     }
 
-
   }
 
-}
-
-
-
-#gutter {
-  background-color: $white;
-  display: inline-block;
-  float: left;
-  width: 35px;
-  padding: 3px 15px 2px 0;
-  overflow-y: auto;
-
-  .line-row {
-    text-align: right;
-    color: #959da5;
-    // padding: 0.5px 0;
-  }
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
 }
 
 .form-button-wrapper {
