@@ -35,6 +35,60 @@
   display: inline-block;
 }
 
+.CodeMirror {
+  height: 700px;
+  border: 1px solid #e1e4e8;
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+  border-top: none;
+}
+
+.nav-wrapper {
+  background-color: #fafbfc;
+  border: 1px solid #e1e4e8;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+
+  nav {
+    .tabbutton {
+      font-family: $sansSerif;
+      background: none;
+      padding: 12px 20px;
+      border: none;
+      cursor: pointer;
+      color: rgb(88, 96, 105);
+
+      &:focus {
+        outline: none;
+      }
+
+      &:hover {
+        color: $onyx;
+      }
+    }
+
+
+    .selected {
+      background-color: $white;
+      border-bottom: 2px solid $white;
+      margin-bottom: -1px;
+      font-weight: 600;
+      border-right: 1px solid #e1e4e8;
+      color: $onyx;
+    }
+
+    // only preview button gets a left border
+    .selected#preview-button {
+      border-left: 1px solid #e1e4e8;
+    }
+
+
+  }
+
+}
+
+
+
 #gutter {
   background-color: $white;
   display: inline-block;

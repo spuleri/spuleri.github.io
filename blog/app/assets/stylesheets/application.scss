@@ -134,7 +134,11 @@ body {
   color: $onyx;
 }
 
-// Imports go here.
+// Codemirror
+@import 'codemirror/lib/codemirror';
+@import 'codemirror-github-light/lib/codemirror-github-light-theme';
+
+// My Imports
 @import 'about';
 @import 'typography';
 @import 'articles';

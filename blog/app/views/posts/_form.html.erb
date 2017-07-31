@@ -16,12 +16,21 @@
       <br>
       <br>
 
-      <%= f.label :content, "Write your article here." %><br>
-      <div id="editor-wrapper">
-        <div id="gutter"></div>
-        <div id="textarea-wrapper">
-          <%= f.text_area :content, :id => 'editor-textarea', :rows => '20' %>
-        </div>
+      <!-- <%= f.label :content, "Write your article here." %><br> -->
+      <div class="nav-wrapper">
+        <nav class="tabnav">
+          <button type="button" class="tabbutton selected" id="edit-button">
+            <i class="fa fa-code" aria-hidden="true"></i>
+            Edit File
+          </button>
+          <button type="button" class="tabbutton" id="preview-button">
+            <i class="fa fa-eye" aria-hidden="true"></i>
+            Preview changes
+          </button>
+        </nav>
+      </div>
+      <div id="textarea-wrapper">
+        <%= f.text_area :content, :id => 'editor-textarea', :rows => '20' %>
       </div>
 
       <div class="form-button-wrapper">

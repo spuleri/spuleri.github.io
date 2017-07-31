@@ -12,4 +12,10 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require codemirror/lib/codemirror
+//= require codemirror/addon/mode/overlay
+//= require codemirror/mode/markdown/markdown
+//= require codemirror/mode/gfm/gfm
+//= require codemirror/mode/htmlmixed/htmlmixed
+//= require codemirror/mode/xml/xml
 //= require_tree .

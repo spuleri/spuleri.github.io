@@ -1,5 +1,12 @@
 {
   "name": "blog",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "codemirror": "^5.28.0",
+    "codemirror-github-light": "^0.4.2"
+  },
+  "version": "1.0.0",
+  "description": "personal website and blog",
+  "main": "index.js",
+  "license": "MIT"
 }
