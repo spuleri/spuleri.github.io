@@ -7,6 +7,7 @@ document.addEventListener("turbolinks:load", function() {
     buildEditor(textarea);
     console.log("Created a codemirror")
   }
+
 });
 
 // Builds the CodeMirror text editor

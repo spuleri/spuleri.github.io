@@ -2,10 +2,11 @@ class PostsController < ApplicationController
 
   # Called on only these methods before
 
-  protect_from_forgery except: :markdown_preview
-  before_action :authorization, only: [:new, :create, :destroy, :edit, :update, :markdown_preview]
+  protect_from_forgery except: [:markdown_preview, :image_upload]
+  before_action :authorization, only: [:new, :create, :destroy, :edit, :update, :markdown_preview, :image_upload]
   before_action :find_post_by_custom_params, only: [:show, :edit]
   before_action :find_post_by_id, only: [:update, :destroy]
+  before_action :set_s3_direct_post, only: [:new, :edit, :create, :update]
 
   def index
     all_posts = Post.all.order("created_at desc")
@@ -125,7 +126,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:title, :content, {images: []})
   end
 
   def find_post_by_id
@@ -150,4 +151,26 @@ class PostsController < ApplicationController
     end
   end
 
+  def set_s3_direct_post
+    # Generates a presigned post for our post req to our bucket.
+    # In the `fields` will have a base64 encoded policy. Which is the bucket policy
+    # for this POST request. This takes into account the fields I provided below
+    # See:
+    # http://docs.aws.amazon.com/AmazonS3/latest/dev/PresignedUrlUploadObject.html
+    # http://docs.aws.amazon.com/sdkforruby/api/Aws/S3/PresignedPost.html
+    # http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-HTTPPOSTConstructPolicy.html
+    # http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPOST.html
+    # https://stackoverflow.com/questions/24987144/amazon-s3-content-type-wont-be-set-when-doing-a-post-request
+    # Options Hash (params):
+    # :expires_in (Integer) — default: 900 — The number of seconds before the presigned URL expires.
+    #  Defaults to 15 minutes. As signature version 4 has a maximum expiry time of one week
+    #  for presigned URLs, attempts to set this value to greater
+    #  than one week (604800) will raise an exception.
+
+    @s3_direct_post = S3_BUCKET.presigned_post(key: "images/#{SecureRandom.uuid}/${filename}",
+                                               success_action_status: '201',
+                                               acl: 'public-read',
+                                               content_type_starts_with: 'image/')
   end
+
+end

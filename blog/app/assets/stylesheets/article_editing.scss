@@ -104,3 +104,76 @@
   }
 
 }
+
+// File uploading styles
+#dropzone {
+  white-space: nowrap;
+
+  height: 230px;
+  background: $white;
+  border: 2px dashed $lightRedOrange;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: scroll;
+
+  &.has-files {
+    justify-content: flex-start;
+    cursor: initial;
+  }
+
+  p {
+    text-align: center;
+  }
+  &.dragover {
+    background: $lightGray;
+    cursor: copy;
+  }
+
+  #thumbnails {
+    font-family: $monospaceFont;
+    div {
+      display: inline-block;
+      text-align: center;
+      padding: 0 2em;
+      position: relative;
+    }
+    .caption {
+      display: block;
+      font-size: 0.7em;
+    }
+
+    .imageStatus {
+      font-size: 0.8em;
+      display: block;
+      margin-top: 0.5em;
+      b, strong {
+        font-weight: 900;
+      }
+    }
+
+  }
+  .thumbnail {
+    max-height: 8em;
+    margin-bottom: 1em;
+  }
+  .delete {
+    color: $brightRed;
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+  }
+  .copy {
+    color: $onyx;
+    cursor: pointer;
+    position: absolute;
+    top: 40px;
+    right: 0px;
+  }
+
+}
+
+

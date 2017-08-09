@@ -38,6 +38,7 @@ gem 'will_paginate'
 gem 'mail_form'
 gem 'bcrypt'
 gem 'rouge'
+gem 'aws-sdk', '~> 2'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
