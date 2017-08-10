@@ -25,7 +25,7 @@ module ApplicationHelper
   end
 
   def markdown(content)
-    renderer = HTMLWithRouge.new()
+    renderer = HTMLWithRouge.new(link_attributes: { target: '_blank' })
     options = {
       autolink: true,
       no_intra_emphasis: true,

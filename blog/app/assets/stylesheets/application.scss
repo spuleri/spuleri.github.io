@@ -111,10 +111,11 @@ body {
 }
 
 .signed-in-notice {
-  float: right;
   // border: 1.3px solid darkgray;
-  margin: 0 1.5em 0 0;
-  padding: 0.5em;
+  position: fixed;
+  right: 3em;
+  // margin: 0 1.5em 0 0;
+  // padding: 0.5em;
   font-size: 0.65em;
   font-family: $monospaceFont;
   /* background-color: #e6d7d7; */
@@ -146,3 +147,4 @@ body {
 @import 'article_editing';
 @import 'code';
 @import 'syntax';
+@import 'mobile';

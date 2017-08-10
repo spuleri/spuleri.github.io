@@ -1,0 +1,22 @@
+@media only screen and (max-width: 768px) {
+  // All elements that are dependent on screen size
+  $pageWidth: 90vw;
+
+  #article-container,
+  .main-nav,
+  .editing-container-no-flex,
+  .container-no-flex
+  {
+    max-width: $pageWidth;
+  }
+
+  .codehilite {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  pre {
+    font-size: 0.75em;
+  }
+
+}
