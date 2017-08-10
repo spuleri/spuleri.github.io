@@ -3,9 +3,11 @@
   $pageWidth: 90vw;
 
   #article-container,
+  #about-container,
   .main-nav,
   .editing-container-no-flex,
-  .container-no-flex
+  .container-no-flex,
+  .container
   {
     max-width: $pageWidth;
   }
@@ -17,6 +19,15 @@
 
   pre {
     font-size: 0.75em;
+  }
+
+
+  .header-img {
+    border: 2px solid $onyx;
+  }
+
+  p {
+    text-align: left;
   }
 
 }
