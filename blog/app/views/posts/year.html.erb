@@ -1,14 +1,14 @@
 <% provide(:title, "Posts from #{@time}") %>
 <div class="container" id="articles-container">
-  <div class="header">
-    <h1><%= @time %></h1>
+  <div>
+    <h2 class="post-time-group" ><%= @time %></h2>
   </div>
 
   <div class="posts-section">
     <!-- Loop through the posts by month in this year-->
     <div class="post-group-by-month">
         <% @posts_by_month.each do |month, posts| %>
-          <h2><%= link_to month.strftime('%B'), url_for("/#{@time}/#{month.strftime('%m')}"), class:"link" %></h2>
+          <h2><%= link_to month.strftime('%B'), url_for("/#{@time}/#{month.strftime('%m')}"), class:"link-gray time-section-header" %></h2>
 
           <ul>
           <% for post in posts %>

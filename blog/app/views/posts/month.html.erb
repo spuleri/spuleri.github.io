@@ -1,14 +1,14 @@
 <% provide(:title, "Posts from #{@time}") %>
 <div class="container" id="articles-container">
-  <div class="header">
-    <h1><%= @time %></h1>
+  <div>
+    <h2 class="post-time-group" style="-webkit-margin-after:0"><%= @time %></h2>
   </div>
 
   <div class="posts-section">
     <!-- Loop through the posts by day in this year-->
     <div>
         <% @posts_by_day.each do |day, posts| %>
-          <h2><%= day.strftime('%A, %B %d') %></h2>
+          <h2 class="day-time-section-header"><%= day.strftime('%A, %B %d') %></h2>
 
           <ul>
           <% for post in posts %>

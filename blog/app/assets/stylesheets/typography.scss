@@ -23,23 +23,36 @@ p {
 }
 
 // Link styling
-.link:link {
+.link {
   line-height: 1.75em;
-  color: $highlight;
+  color: $brightRed;
 
   /* Space b/w text and underline */
-  padding-bottom: 7px;
+  // padding-bottom: 7px;
 
   text-decoration: none;
+
+  &:hover {
+    border-bottom: 2px solid $brightRed;
+    cursor: pointer;
+  }
+  &:visited {
+    color: $brightRed;
+  }
 }
-a:visited {
+
+.link-red {
+  color: $brightRed;
   text-decoration: none;
-  color: $highlight;
-}
-.link:hover {
-  border-bottom: 2px solid $white;
+  border-bottom: 3px solid $lightRedOrange;
   cursor: pointer;
+
+  &:hover {
+    border-bottom: 3px solid $brightRed
+  }
 }
+
+
 
 // Article styling
 #markdown-content {

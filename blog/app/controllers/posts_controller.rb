@@ -8,7 +8,12 @@ class PostsController < ApplicationController
   before_action :find_post_by_id, only: [:update, :destroy]
 
   def index
-    @posts = Post.all.order("created_at desc").paginate(page: params[:page], per_page: 5)
+    all_posts = Post.all.order("created_at desc")
+
+    # Group posts by year
+    # — creates a hash of year time objects to arrays of posts
+    @posts = all_posts.group_by { |post| post.created_at.beginning_of_year }
+
   end
 
   def new

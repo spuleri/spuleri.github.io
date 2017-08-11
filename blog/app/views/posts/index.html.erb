@@ -12,18 +12,19 @@
       and smart rails to loop through the list:
       https://www.railstutorial.org/book/updating_and_deleting_users#sec-partial_refactoring
     -->
-    <%= render @posts %>
+    <!-- Loop through the posts by month in this year-->
+      <div class="post-group-by-year">
+        <% @posts.each do |year, posts| %>
+          <h2 class="post-time-group"><%= link_to year.strftime('%Y'),
+           url_for("/#{year.strftime('%Y')}"),
+           class: 'link-gray' %></h2>
+
+          <%= render posts %>
+
+        <% end %>
+    </div>
+
   </div>
 
-  <div class="pagination-container">
-    <%= will_paginate @posts %>
-
-    <!-- <div class="pagination">
-      <span class="previous-page disabled"> Previous</span>
-      <em class="current">1</em>
-      <a rel="next" href="#">2</a>
-      <a class="next-page" href="#">Next</a>
-      </div> -->
-  </div>
 
 </div>
