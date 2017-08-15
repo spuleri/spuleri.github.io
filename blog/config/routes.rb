@@ -46,10 +46,10 @@ Rails.application.routes.draw do
   post "/markdown_preview" => 'posts#markdown_preview'
 
   # All other bad paths render 404
-  get '*path', :to => 'application#page_not_found'
+  #get '*path', :to => 'application#page_not_found'
 
   # if Rails.env.production?
-  get '404', :to => 'application#page_not_found'
+  # get '404', :to => 'application#page_not_found'
   # end
 
 end
