@@ -1,5 +1,5 @@
 # Basic config
-server '67.207.87.58', port: 3000, roles: [:web, :app, :db], primary: true
+server '67.207.87.58', roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:spuleri/spuleri.github.io.git'
 set :application,     'sergiopuleri.com'
@@ -77,7 +77,8 @@ namespace :deploy do
     end
   end
 
-  before :starting,     :check_revision
+  # TODO: Remove commented out
+  #before :starting,     :check_revision
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
   after  :finishing,    :restart
