@@ -2,13 +2,9 @@ document.addEventListener("turbolinks:load", () => {
   // Get the dropzone div and configure it with the callback
   // to be called upon file selections.
   const dropzone = document.getElementById('dropzone');
-  initializeDropzone(dropzone, handleFilesDropped);
-
-
-  // Initialize file manager
-  // this is necessary if we are editing a post
-  // and it had images that were served from the server
-  // TODO:
+  if (dropzone) {
+    initializeDropzone(dropzone, handleFilesDropped);
+  }
 });
 
 // Class to represent a File that is associated with this post
@@ -17,9 +13,10 @@ document.addEventListener("turbolinks:load", () => {
 class PostImage {
   constructor(file, cloudURL) {
     this.file = file;
-    this.uploaded = false;
     this.cloudURL = cloudURL || '';
     this.name = file.name;
+    this.DOMNode = null;
+    this.statusTextNode = null;
   }
 
   getImageUrl() {
@@ -30,102 +27,30 @@ class PostImage {
     }
   }
 
-  // Maintain the dom node to easily update it / delete it
   setDOMNode(node) {
     this.DOMNode = node;
   }
 
-  // Uploads the file to the server and cloud
-  // TODO: Abstract this functionality OUT of this class...
-  uploadFile() {
-    // Show loading
-    const statusText = document.createElement('span');
-    statusText.innerHTML = '<b>Status</b>: Uploading...'
-    statusText.className = 'imageStatus';
-    this.DOMNode.appendChild(statusText);
-    this.statusTextNode = statusText;
-
-    // Grab the dropzone div to get the pre signed post options
-    // from the data params
-    const dropzone = document.getElementById('dropzone');
-    const presignedPostData = dropzone.getAttribute('data-form-data');
-    const parsedPresignedPostData = JSON.parse(presignedPostData);
-    const url = dropzone.getAttribute('data-url');
-    const host = dropzone.getAttribute('data-host');
-
-    // Build and send the ajax request
-    const request = new XMLHttpRequest();
-    request.onload = () => this.handleUploadResponse(this, request);
-    request.upload.addEventListener('progress', function(e) {
-      let divisor =  e.total > 1000000 ? 1000000 : 1000
-      let unit =  e.total > 1000000 ? 'MB' : 'KB'
-      const progressString = Math.round(((e.loaded/divisor)*10))/10
-        + unit + ' \/ ' +
-        Math.round(((e.total/divisor)*10))/10 + unit;
-      statusText.innerHTML = '<b>Status</b>: Uploading... ' + progressString;
-    }, false);
-    request.open("post", url);
-
-    // Add image as FormData
-    const formData = new FormData();
-
-    // Append all the presigned post data attributes to the form object
-    for (var prop in parsedPresignedPostData) {
-      formData.append(prop, parsedPresignedPostData[prop]);
-    }
-    // Add content-type so aws knows what type of file this is.
-    // This isnt required. But makes it so the file doesn't auto download
-    // when the link is clicked, which is nice.
-    formData.append('Content-Type', this.file.type)
-    formData.append('file', this.file);
-
-    // Send it
-    request.responseType = 'document';
-    const payload = formData;
-    request.send(payload);
+  setStatusTextNode(node) {
+    this.statusTextNode = node;
   }
-
-  handleUploadResponse(postImageObject, xhr) {
-    const res = xhr.responseXML;
-    console.log('Got response from server...');
-
-    // Parse the xml resposne for the url of our uploaded image
-    const error = res.getElementsByTagName("Error")[0]
-    if (error) {
-      // Grab the error message
-      const msg = res.getElementsByTagName("Message")[0].innerHTML;
-      postImageObject.statusTextNode.innerHTML = '<b>Error uploading</b>: Check console';
-      console.error(msg);
-    } else {
-      const imageURL = res.getElementsByTagName("Location")[0].innerHTML;
-      postImageObject.cloudURL = imageURL;
-      console.log('Image URL is:');
-      console.log(imageURL);
-      postImageObject.statusTextNode.innerHTML = '<b>Status</b>: Uploaded ✅ ';
-    }
-
-  }
-
 }
 
 const FileManager = {
   // Maintains the state of files dropped on the page
   filesDropped: [],
 
-  // Maintains the state of files uploaded
-  uploadQueue: [],
-
   // Called when a file is dropped
   // to add it to the thumbnails
   dropFile: function(postImage) {
     this.filesDropped.push(postImage);
     var idx = this.filesDropped.length - 1;
-    // Add the thumbnail node
+
+    // Create and add the thumbnail node
     var tn = document.getElementById('thumbnails');
     const node = constructThumbnailNode(postImage, idx, postImage.name, tn);
     postImage.setDOMNode(node);
-    postImage.uploadFile();
-    this.updateInputsValue();
+    uploadFile(postImage);
   },
 
   // Function called when a file is removed
@@ -137,12 +62,6 @@ const FileManager = {
     if (!this.filesDropped.length) {
       configureEmptyDropzone();
     }
-    this.updateInputsValue();
-  },
-
-  updateInputsValue: function() {
-    //var input = document.getElementById('post_images');
-    //input.value = this.filesDropped;
   }
 }
 
@@ -166,7 +85,13 @@ function constructThumbnailNode(postImage, idx, title, tn) {
   // Create delete button
   var deleteButton = document.createElement('a');
   deleteButton.innerHTML = "<i class=\"fa fa-times fa-2x\" aria-hidden=\"true\"></i>";
-  deleteButton.className = 'delete';
+  deleteButton.className = 'delete tooltip';
+  // Create tooltip node and add it
+  const deleteToolTipNode = document.createElement('span');
+  deleteToolTipNode.className = 'tooltiptext';
+  deleteToolTipNode.textContent = 'Delete from browser memory but not from S3';
+  deleteButton.appendChild(deleteToolTipNode);
+
   deleteButton.onclick = (e) => {
     e.stopPropagation();
     FileManager.removeFile(postImage, container);
@@ -174,12 +99,27 @@ function constructThumbnailNode(postImage, idx, title, tn) {
 
   // Create copy to clipboard button
   var copyButton = document.createElement('a');
+  copyButton.className = 'copy tooltip';
+
+  // Add the icon to the copy button
   copyButton.innerHTML = "<i class=\"fa fa-clipboard fa-lg\" aria-hidden=\"true\"></i>";
-  copyButton.className = 'copy';
+
+  // Create the tooltip node and add it
+  const toolTipNode = document.createElement('span');
+  toolTipNode.className = 'tooltiptext';
+  toolTipNode.textContent = 'Copy to clipboard';
+  copyButton.appendChild(toolTipNode);
+
+  // Add the click event handler to copy the text
   copyButton.onclick = (e) => {
     e.stopPropagation();
-    copyTextToClipboard(postImage.getImageUrl());
- };
+    copyTextToClipboard(postImage.getImageUrl(), toolTipNode);
+  };
+
+  // Reset the text upon mouseleave
+  copyButton.addEventListener("mouseleave", (e) => {
+    toolTipNode.textContent = 'Copy to clipboard'
+  });
 
   var img = new Image();
   img.src = localImageUrl;
@@ -196,7 +136,6 @@ function constructThumbnailNode(postImage, idx, title, tn) {
   tn.appendChild(container);
   return container;
 }
-
 
 
 function initializeDropzone(element, callback) {
@@ -278,7 +217,7 @@ function clickDropZoneEvent() {
     input.click();
 }
 
-function copyTextToClipboard(text) {
+function copyTextToClipboard(text, toolTipNode) {
   const dummyInput = document.createElement('textarea');
   dummyInput.style.position = 'fixed';
   dummyInput.style.top = 0;
@@ -287,12 +226,18 @@ function copyTextToClipboard(text) {
   document.body.appendChild(dummyInput);
   dummyInput.select();
   try {
-      var status = document.execCommand('copy');
-      if(!status){
-          console.log("Cannot copy text");
-      }else{
-          console.log("The text is now on the clipboard: " + window.getSelection());
+    var status = document.execCommand('copy');
+    if(!status) {
+      console.log("Cannot copy text");
+      if (toolTipNode) {
+        toolTipNode.textContent = 'Cannot copy text';
       }
+    } else {
+      console.log("URL copied to clipboard " + window.getSelection());
+      if (toolTipNode) {
+        toolTipNode.textContent = 'URL copied!';
+      }
+    }
     document.body.removeChild(dummyInput);
   } catch (err) {
       alert('Unable to copy.');

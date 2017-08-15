@@ -21,7 +21,9 @@
 /yarn-error.log
 
 .byebug_history
-/config/app_environment_variables.rb
 ../.sass-cache
 ../.sass-cache/*
  *.map
+
+# Ignore app environment variables
+/config/app_environment_variables.rb

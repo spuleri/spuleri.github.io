@@ -136,6 +136,52 @@ body {
   color: $onyx;
 }
 
+// Tooltip styling
+// https://www.w3schools.com/css/css_tooltip.asp
+
+// Tooltip container
+.tooltip {
+  position: relative;
+  display: inline-block;
+
+  // Tooltip text
+  .tooltiptext {
+    visibility: hidden;
+    background: $tooltipGray;
+    font-family: $sansSerif;
+    font-size: 0.7em;
+    color: #fff;
+    text-align: center;
+    padding: 5px 8px;
+    border-radius: 6px;
+    // Positioning relative to container
+    top: -5px;
+    left: 150%;
+
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+
+    &::after {
+      content: " ";
+      position: absolute;
+      top: 50%;
+      right: 100%; // To the left of the tooltip
+      margin-top: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent $tooltipGray transparent transparent;
+    }
+  }
+
+  // Show the tooltip text when you moseover the tooltip container
+  &:hover {
+    .tooltiptext {
+      visibility: visible;
+    }
+  }
+}
+
 // Codemirror
 @import 'codemirror/lib/codemirror';
 @import 'codemirror-github-light/lib/codemirror-github-light-theme';
