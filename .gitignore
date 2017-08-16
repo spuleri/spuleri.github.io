@@ -25,5 +25,10 @@
 ../.sass-cache/*
  *.map
 
-# Ignore app environment variables
+# Ignore app environment variables and database.yml and secrets.yml
+# These will be transerred to the server from the dev environment
+# and symlinked in.
 /config/app_environment_variables.rb
+/config/database.yml
+/config/secrets.yml
+

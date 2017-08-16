@@ -77,8 +77,18 @@ namespace :deploy do
     end
   end
 
+ desc "Copy shared files to server"
+ task :copy_shared_files do
+    on roles(:app) do |host|
+       fetch(:linked_files).each do |f|
+          upload! f , "#{shared_path}/" + f
+       end
+    end
+ end
+
   # TODO: Remove commented out
   #before :starting,     :check_revision
+  after  :starting,      :copy_shared_files
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
   after  :finishing,    :restart
