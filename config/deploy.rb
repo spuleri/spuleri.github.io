@@ -35,7 +35,7 @@ set :keep_releases, 7
 ## Linked Files & Directories:
 # These survive re-deploys and are symlinked into the application
 append :linked_files, "config/database.yml", "config/secrets.yml", "config/app_environment_variables.rb"
-append :linked_dirs, "bin", "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system"
+append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system"
 
 
 namespace :puma do
