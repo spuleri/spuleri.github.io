@@ -14,6 +14,7 @@ gem 'pg'
 # Use Puma as the app server
 # gem 'puma', '~> 3.7' # => evaluates to 3.9.1 which doesnt work.
 # See github issue: https://github.com/seuros/capistrano-puma/issues/237
+# Seems to be just fixed today lol, 8/16: https://github.com/puma/puma/issues/1308
 gem 'puma', '3.8.2' # => works!
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
