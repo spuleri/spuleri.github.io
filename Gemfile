@@ -9,10 +9,13 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.2'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Use postgres as the database for Active Record
+gem 'pg'
 # Use Puma as the app server
-gem 'puma', '~> 3.7'
+# gem 'puma', '~> 3.7' # => evaluates to 3.9.1 which doesnt work.
+# See github issue: https://github.com/seuros/capistrano-puma/issues/237
+# Seems to be just fixed today lol, 8/16: https://github.com/puma/puma/issues/1308
+gem 'puma', '3.8.2' # => works!
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -34,14 +37,19 @@ gem 'jbuilder', '~> 2.5'
 
 # Below are my gems
 gem 'redcarpet'
-gem 'will_paginate'
-gem 'mail_form'
 gem 'bcrypt'
 gem 'rouge'
 gem 'aws-sdk', '~> 2'
 
 # Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+group :development do
+    gem 'capistrano'
+    gem 'capistrano-rvm'
+    gem 'capistrano-rails'
+    gem 'capistrano-bundler'
+    gem 'capistrano3-puma'
+    gem 'capistrano-yarn'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
