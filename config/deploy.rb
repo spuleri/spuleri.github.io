@@ -27,7 +27,7 @@ set :puma_init_active_record, true  # Change to true if using ActiveRecord
 # set :scm,           :git
 # set :branch,        :master
 # TODO: DELETE/COMMENT OUT BELOW LINE. ONLY FOR TESTING.
-set :branch,        :deploy
+set :branch,        :develop
 # set :format,        :pretty
 # set :log_level,     :debug
 set :keep_releases, 7
@@ -86,8 +86,7 @@ namespace :deploy do
     end
  end
 
-  # TODO: Remove commented out
-  #before :starting,     :check_revision
+  before :starting,     :check_revision
   after  :starting,      :copy_shared_files
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
